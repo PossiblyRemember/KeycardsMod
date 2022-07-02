@@ -17,13 +17,27 @@ namespace Mod
                 {
                     OriginalItem = ModAPI.FindSpawnable("Brick"),
                     NameOverride = "Red Keycard" + ModTag,
-                    DescriptionOverride = "Like a brick but differently coloured." + NameTag,
+                    DescriptionOverride = "Red Keycard" + NameTag,
                     CategoryOverride = ModAPI.FindCategory("Misc."),
                     ThumbnailOverride = ModAPI.LoadSprite("redkeyc.png"), //Doesn't exist yet!
                     AfterSpawn = (Instance) =>
                     {
                         Instance.GetComponent<SpriteRenderer>().sprite = ModAPI.LoadSprite("redkeyc.png"); //Doesn't exist yet!
                         Instance.GetComponent<Collider2D>().IsTouching();
+                    }
+                }
+            );
+            ModAPI.Register(
+                new Modification()
+                {
+                    OriginalItem = ModAPI.FindSpawnable("Brick"),
+                    NameOverride = "Red Reciever" + ModTag,
+                    DescriptionOverride = "Put Red Keycard here," + NameTag,
+                    CategoryOverride = ModAPI.FindCategory("Misc."),
+                    ThumbnailOverride = ModAPI.LoadSprite("redkeyc.png"), //Doesn't exist yet!
+                    AfterSpawn = (Instance) =>
+                    {
+                        Instance.GetComponent<SpriteRenderer>().sprite = ModAPI.LoadSprite("redkeyr.png"); //Doesn't exist yet!
                     }
                 }
             );
