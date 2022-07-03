@@ -11,6 +11,7 @@ namespace Mod
         public static string ModTag = " <color=red>[PRMods]"; //Whilst not required, modded items should contain 'tags' at the end of their names to prevent errors in which two mods have an item of the same name.
         public static string NameTag = " - <color=red>Possibly Remember";
         public static void Main()
+        //public static Vector2(-4, 0);
         {
             ModAPI.Register(
                 new Modification()
@@ -23,6 +24,10 @@ namespace Mod
                     AfterSpawn = (Instance) =>
                     {
                         Instance.GetComponent<SpriteRenderer>().sprite = ModAPI.LoadSprite("sprites/redkeyc.png"); //Doesn't exist yet!
+                        UnityEngine.Object.Destroy(Instance.GetComponent<Collider2D>());
+                        Instance.AddComponent<PolygonCollider2D>();
+                        Instance.GetComponent<PolygonCollider2D>().pathCount = 2;
+                        Instance.GetComponent<PolygonCollider2D>().autoTiling = true;
                     }
                 }
             );
@@ -38,9 +43,11 @@ namespace Mod
                     {
                         Instance.GetComponent<SpriteRenderer>().sprite = ModAPI.LoadSprite("sprites/redkeyr.png"); //Doesn't exist yet!
                         UnityEngine.Object.Destroy(Instance.GetComponent<Collider2D>());
+                        Instance.GetComponent<LaserBehaviour>().barrelPosition = new Vector2(-4,0);
                         Instance.AddComponent<PolygonCollider2D>();
-                        Instance.GetComponent<PolygonCollider2D>().pathCount = 15;
+                        Instance.GetComponent<PolygonCollider2D>().pathCount = 2;
                         Instance.GetComponent<PolygonCollider2D>().autoTiling = true;
+                        UnityEngine.Object.Destroy(Instance.GetComponent<LaserReceiverBehaviour>().Light);
                     }
                 }
             );
