@@ -40,7 +40,7 @@ namespace Mod
                     NameOverride = "Red Reciever" + ModTag,
                     DescriptionOverride = "Put Red Keycard here," + NameTag,
                     CategoryOverride = ModAPI.FindCategory("Misc."),
-                    ThumbnailOverride = ModAPI.LoadSprite("sprites/redkeyr.png")
+                    ThumbnailOverride = ModAPI.LoadSprite("sprites/redkeyr.png"),
                     AfterSpawn = (Instance) =>
                     {
                         //Instance.GetComponent<SpriteRenderer>().sprite = ModAPI.LoadSprite("sprites/redkeyr.png");
