@@ -10,7 +10,7 @@
   "Scripts": [
     "mod.cs"
   ],
-  "Active": false,
+  "Active": true,
   "UGCIdentity": null,
   "CreatorUGCIdentity": ""
 }

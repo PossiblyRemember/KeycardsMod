@@ -15,32 +15,39 @@ namespace Mod
             ModAPI.Register(
                 new Modification()
                 {
-                    OriginalItem = ModAPI.FindSpawnable("Brick"),
+                    OriginalItem = ModAPI.FindSpawnable("Laser Receiver"),
                     NameOverride = "Red Keycard" + ModTag,
                     DescriptionOverride = "Red Keycard" + NameTag,
                     CategoryOverride = ModAPI.FindCategory("Misc."),
-                    ThumbnailOverride = ModAPI.LoadSprite("redkeyc.png"), //Doesn't exist yet!
+                    ThumbnailOverride = ModAPI.LoadSprite("sprites/redkeyc.png"), //Doesn't exist yet!
                     AfterSpawn = (Instance) =>
                     {
-                        Instance.GetComponent<SpriteRenderer>().sprite = ModAPI.LoadSprite("redkeyc.png"); //Doesn't exist yet!
-                        Instance.GetComponent<Collider2D>().IsTouching();
+                        Instance.GetComponent<SpriteRenderer>().sprite = ModAPI.LoadSprite("sprites/redkeyc.png"); //Doesn't exist yet!
                     }
                 }
             );
             ModAPI.Register(
                 new Modification()
                 {
-                    OriginalItem = ModAPI.FindSpawnable("Brick"),
+                    OriginalItem = ModAPI.FindSpawnable("Laser Pointer"),
                     NameOverride = "Red Reciever" + ModTag,
                     DescriptionOverride = "Put Red Keycard here," + NameTag,
                     CategoryOverride = ModAPI.FindCategory("Misc."),
-                    ThumbnailOverride = ModAPI.LoadSprite("redkeyc.png"), //Doesn't exist yet!
+                    ThumbnailOverride = ModAPI.LoadSprite("sprites/redkeyr.png"), //Doesn't exist yet!
                     AfterSpawn = (Instance) =>
                     {
-                        Instance.GetComponent<SpriteRenderer>().sprite = ModAPI.LoadSprite("redkeyr.png"); //Doesn't exist yet!
+                        Instance.GetComponent<SpriteRenderer>().sprite = ModAPI.LoadSprite("sprites/redkeyr.png"); //Doesn't exist yet!
+                        UnityEngine.Object.Destroy(Instance.GetComponent<Collider2D>());
+                        Instance.AddComponent<PolygonCollider2D>();
+                        Instance.GetComponent<PolygonCollider2D>().pathCount = 15;
+                        Instance.GetComponent<PolygonCollider2D>().autoTiling = true;
                     }
                 }
             );
         }
+    }
+    public class Reciever : object
+    {
+
     }
 }
